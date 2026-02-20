@@ -1,0 +1,10 @@
+<p>Modern Song list!</p>
+
+<ul [ngStyle]="ulStyle">
+
+    @for(song of songs; track song.id) {
+        <li [ngStyle]="liStyle">
+            <app-new-song [song]="song" ></app-new-song>
+        </li>        
+    }
+</ul>

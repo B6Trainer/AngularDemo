@@ -1,0 +1,23 @@
+
+<li [ngStyle]="{color : isTopSong ? 'red' : 'blue'}"> 
+
+    @if(isTopSong) {
+       TOP SONG!
+    }
+
+    <div>
+        ID: {{song().id}}  TITLE: {{song().title}}  ARTIST: {{song().artist}}
+    </div>
+
+    <div>        
+        Price: {{song().price | currency:'EUR': 'symbol':'1.2-2'}} 
+        Release Date: {{song().dateReleased | date:'dd/MM/yyyy'}}
+    </div>
+
+    <div>
+        Votes: {{song().votes}}   
+        <button (click)="clickVoteUp()">vote</button>       
+    </div>
+    
+
+</li>

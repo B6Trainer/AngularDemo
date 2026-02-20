@@ -1,0 +1,36 @@
+<div >
+
+
+
+    <p>Song List!</p>
+    
+
+    <div>
+        <button (click)="toggleSongList()">Toggle Latest List</button>
+    </div>
+
+    <div>
+        @if(latestlist) {
+            <p>Classic List</p>
+            <ul>
+                <app-song [song]="song1" (voteUp)="vote($event)" #songComponent1></app-song>
+                <app-song [song]="song2" (voteUp)="vote($event)" #songComponent2></app-song>
+                <app-song [song]="song3" (voteUp)="vote($event)" #songComponent3></app-song>
+            </ul>
+
+        } @else {
+            <p>Latest List</p>
+            <ul [ngStyle]="ulStyle" >
+                <div>
+                @for(song of songs; track song.id) {
+                    <li [ngStyle]="liStyle">
+                    <app-song [song]="song" (voteUp)="votenew($event)" #songcomponents></app-song>
+                    </li>
+                }
+                </div>
+            </ul>
+        }
+
+    </div>
+
+</div>
